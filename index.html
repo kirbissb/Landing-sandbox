@@ -8,157 +8,623 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Source Sans 3', sans-serif; color: #1a1a1a; background: #ffffff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-        .hero { padding: 60px 0 50px; text-align: center; }
-        .hero-subtitle { font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #666; margin-bottom: 28px; }
-        .hero-headline { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 800; line-height: 1.2; color: #1a1a1a; margin-bottom: 24px; }
-        .highlight { background: linear-gradient(180deg, transparent 55%, #FFE566 55%); padding: 0 4px; }
-        .hero-subheadline { font-family: 'Source Sans 3', sans-serif; font-size: 18px; font-weight: 400; color: #555; line-height: 1.7; margin-bottom: 32px; }
-        .hero-subheadline em { font-style: italic; color: #444; }
-        .hero-bullets-label { font-family: 'Source Sans 3', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 16px; }
-        .hero-bullets { list-style: none; text-align: left; max-width: 580px; margin: 0 auto 36px; }
-        .hero-bullets li { font-size: 17px; line-height: 1.6; color: #333; padding: 10px 0; padding-left: 28px; position: relative; }
-        .hero-bullets li::before { content: "\2713"; position: absolute; left: 0; color: #2D8C3C; font-weight: 700; }
-        .cta-button { display: inline-block; background: #2D8C3C; color: #fff; font-family: 'Source Sans 3', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 18px 48px; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; transition: background 0.2s ease; }
-        .cta-button:hover { background: #236E2F; }
-        .cta-subtext { font-size: 14px; color: #888; margin-top: 12px; }
-        .hook-section { padding: 50px 0; background: #fafafa; }
-        .hook-lead { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; text-align: center; color: #1a1a1a; margin-bottom: 20px; }
-        .hook-text { font-size: 18px; color: #444; line-height: 1.8; text-align: center; max-width: 560px; margin: 0 auto 16px; }
-        .divider { width: 60px; height: 2px; background: #e0e0e0; margin: 0 auto; }
-        .pain-section { padding: 60px 0; }
-        .section-headline { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 36px; line-height: 1.3; }
-        .pain-list { list-style: none; max-width: 580px; margin: 0 auto; }
-        .pain-list li { font-size: 18px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; padding-left: 32px; position: relative; color: #333; }
-        .pain-list li::before { content: "\2192"; position: absolute; left: 0; color: #c0392b; font-weight: 700; }
-        .pain-closing { text-align: center; font-size: 19px; font-weight: 500; color: #333; margin-top: 36px; line-height: 1.6; }
-        .why-section { padding: 60px 0; background: #fafafa; }
-        .why-text { font-size: 18px; color: #444; line-height: 1.8; max-width: 600px; margin: 0 auto; text-align: center; }
-        .why-text p { margin-bottom: 20px; }
-        .why-text strong { color: #1a1a1a; }
-        .inside-section { padding: 60px 0; }
-        .features-grid { display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 580px; margin: 40px auto 0; }
-        .feature-card { padding: 28px; border: 1px solid #eee; border-radius: 8px; background: #fff; }
-        .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 10px; color: #1a1a1a; }
-        .feature-card p { font-size: 16px; color: #555; line-height: 1.6; }
-        .feature-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2D8C3C; margin-bottom: 8px; }
-        .pricing-section { padding: 60px 0; background: #fafafa; text-align: center; }
-        .price-card { max-width: 440px; margin: 36px auto 0; padding: 40px; background: #fff; border: 2px solid #2D8C3C; border-radius: 10px; }
-        .price-tag { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #2D8C3C; margin-bottom: 12px; }
-        .price-amount { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 800; color: #1a1a1a; }
-        .price-original { font-size: 22px; color: #999; text-decoration: line-through; margin-left: 8px; font-weight: 400; }
-        .price-note { font-size: 15px; color: #666; margin: 12px 0 28px; }
-        .price-includes { text-align: left; list-style: none; margin-bottom: 28px; }
-        .price-includes li { font-size: 16px; padding: 8px 0; color: #333; padding-left: 28px; position: relative; }
-        .price-includes li::before { content: "\2713"; position: absolute; left: 0; color: #2D8C3C; font-weight: 700; }
-        .guarantee-section { padding: 50px 0; text-align: center; }
-        .guarantee-box { max-width: 520px; margin: 0 auto; padding: 32px; border: 1px dashed #ccc; border-radius: 8px; }
-        .guarantee-box h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 12px; }
-        .guarantee-box p { font-size: 16px; color: #555; line-height: 1.7; }
-        .faq-section { padding: 60px 0; background: #fafafa; }
-        .faq-item { max-width: 580px; margin: 0 auto 24px; padding: 24px 0; border-bottom: 1px solid #e0e0e0; }
-        .faq-item h3 { font-family: 'Source Sans 3', sans-serif; font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
-        .faq-item p { font-size: 16px; color: #555; line-height: 1.7; }
-        .final-cta { padding: 70px 0; text-align: center; }
-        .final-headline { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
-        .final-subtext { font-size: 18px; color: #555; margin-bottom: 32px; }
-        footer { padding: 30px 0; text-align: center; font-size: 13px; color: #aaa; border-top: 1px solid #f0f0f0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: #1a1a1a;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ====== HERO SECTION ====== */
+        .hero {
+            padding: 60px 0 50px;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 28px;
+        }
+
+        .hero-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 55%, #FFE566 55%);
+            padding: 0 4px;
+        }
+
+        .hero-subheadline {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero-subheadline em {
+            font-style: italic;
+            color: #444;
+        }
+
+        .hero-bullets-label {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .hero-bullets-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 36px;
+        }
+
+        .hero-bullets-col {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hero-image-col {
+            flex: 0 0 320px;
+        }
+
+        .hero-image-col img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .hero-bullets {
+            list-style: none;
+            text-align: left;
+            margin: 0;
+        }
+
+        .hero-bullets li {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #333;
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .hero-bullets li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: #2D8C3C;
+            font-weight: 700;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #2D8C3C;
+            color: #fff;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 18px 48px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #236E2F;
+        }
+
+        .cta-subtext {
+            font-size: 14px;
+            color: #888;
+            margin-top: 12px;
+        }
+
+        /* ====== HOOK SECTION ====== */
+        .hook-section {
+            padding: 50px 0;
+            background: #fafafa;
+        }
+
+        .hook-lead {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .hook-text {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 16px;
+        }
+
+        /* ====== DIVIDER ====== */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #e0e0e0;
+            margin: 0 auto;
+        }
+
+        /* ====== PAIN SECTION ====== */
+        .pain-section {
+            padding: 60px 0;
+        }
+
+        .section-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 36px;
+            line-height: 1.3;
+        }
+
+        .pain-list {
+            list-style: none;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .pain-list li {
+            font-size: 18px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+            padding-left: 32px;
+            position: relative;
+            color: #333;
+        }
+
+        .pain-list li::before {
+            content: "\2192";
+            position: absolute;
+            left: 0;
+            color: #c0392b;
+            font-weight: 700;
+        }
+
+        .pain-closing {
+            text-align: center;
+            font-size: 19px;
+            font-weight: 500;
+            color: #333;
+            margin-top: 36px;
+            line-height: 1.6;
+        }
+
+        /* ====== WHY SECTION ====== */
+        .why-section {
+            padding: 60px 0;
+            background: #fafafa;
+        }
+
+        .why-text {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-text p {
+            margin-bottom: 20px;
+        }
+
+        .why-text strong {
+            color: #1a1a1a;
+        }
+
+        /* ====== WHAT'S INSIDE ====== */
+        .inside-section {
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 580px;
+            margin: 40px auto 0;
+        }
+
+        .feature-card {
+            padding: 28px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2D8C3C;
+            margin-bottom: 8px;
+        }
+
+        /* ====== PRICING ====== */
+        .pricing-section {
+            padding: 60px 0;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .price-card {
+            max-width: 440px;
+            margin: 36px auto 0;
+            padding: 40px;
+            background: #fff;
+            border: 2px solid #2D8C3C;
+            border-radius: 10px;
+        }
+
+        .price-tag {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2D8C3C;
+            margin-bottom: 12px;
+        }
+
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+
+        .price-original {
+            font-size: 22px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .price-note {
+            font-size: 15px;
+            color: #666;
+            margin: 12px 0 28px;
+        }
+
+        .price-includes {
+            text-align: left;
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .price-includes li {
+            font-size: 16px;
+            padding: 8px 0;
+            color: #333;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .price-includes li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: #2D8C3C;
+            font-weight: 700;
+        }
+
+        /* ====== GUARANTEE ====== */
+        .guarantee-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .guarantee-box {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 32px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+        }
+
+        .guarantee-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .guarantee-box p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ====== FAQ ====== */
+        .faq-section {
+            padding: 60px 0;
+            background: #fafafa;
+        }
+
+        .faq-item {
+            max-width: 580px;
+            margin: 0 auto 24px;
+            padding: 24px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .faq-item h3 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ====== FINAL CTA ====== */
+        .final-cta {
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .final-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .final-subtext {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 32px;
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* ====== MOBILE ====== */
         @media (max-width: 600px) {
-            .hero { padding: 40px 0 36px; }
-            .hero-headline { font-size: 30px; }
-            .hero-subheadline { font-size: 16px; }
-            .section-headline { font-size: 26px; }
-            .cta-button { font-size: 16px; padding: 16px 36px; width: 100%; }
-            .price-amount { font-size: 44px; }
-            .feature-card { padding: 22px; }
-            .final-headline { font-size: 26px; }
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .hero-headline {
+                font-size: 30px;
+            }
+
+            .hero-subheadline {
+                font-size: 16px;
+            }
+
+            .section-headline {
+                font-size: 26px;
+            }
+
+            .cta-button {
+                font-size: 16px;
+                padding: 16px 36px;
+                width: 100%;
+            }
+
+            .price-amount {
+                font-size: 44px;
+            }
+
+            .feature-card {
+                padding: 22px;
+            }
+
+            .final-headline {
+                font-size: 26px;
+            }
+
+            .hero-bullets-row {
+                flex-direction: column;
+            }
+
+            .hero-image-col {
+                flex: none;
+                width: 100%;
+                order: -1;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- ====== HERO ====== -->
     <section class="hero">
         <div class="container">
             <p class="hero-subtitle">For people who work from home</p>
+
             <h1 class="hero-headline">
                 The 3-System Sleep Reset That Gets Your <span class="highlight">Sleep&nbsp;and&nbsp;Energy</span> Back — <span style="text-decoration: underline; text-underline-offset: 4px;">Starting&nbsp;Week&nbsp;1</span>
             </h1>
-            <p class="hero-subheadline">(No Pills. No Willpower. No Quitting Coffee.)</p>
+
+            <p class="hero-subheadline">
+                (No Pills. No Willpower. No Quitting Coffee.)
+            </p>
+
             <a href="#pricing" class="cta-button">Become a Founding Member — $67 <span style="font-size: 0.85em; color: rgba(255,255,255,0.75); text-decoration: line-through; text-decoration-color: #ff6b6b; text-decoration-thickness: 2px; margin-left: 4px;">$134</span></a>
             <p class="cta-subtext">Only 15 founding member spots.</p>
-            <p class="hero-bullets-label" style="margin-top: 48px;">You’re going to see:</p>
-            <ul class="hero-bullets">
-                <li>How our team reset our sleep with zero lifestyle overhaul, meditation, or complicated routines</li>
-                <li>How we got this to work after years of trying everything — melatonin, apps, books, “sleep hygiene” — and nothing sticking</li>
-                <li>A simple week-by-week system we built to rebuild your energy step by step — 10 minutes a day, no discipline required</li>
-            </ul>
+
+            <p class="hero-bullets-label" style="margin-top: 48px;">You're going to see:</p>
+            <div class="hero-bullets-row">
+                <div class="hero-image-col">
+                    <img src="hero-image.png" alt="Sleep Reset Program">
+                </div>
+                <div class="hero-bullets-col">
+                    <ul class="hero-bullets">
+                        <li>How our team reset our sleep with zero lifestyle overhaul, meditation, or complicated routines</li>
+                        <li>How we got this to work after years of trying everything — melatonin, apps, books, "sleep hygiene" — and nothing sticking</li>
+                        <li>A simple week-by-week system we built to rebuild your energy step by step — 10 minutes a day, no discipline required</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- ====== HOOK / STORY BLOCK ====== -->
     <section class="hook-section">
         <div class="container">
             <p class="hook-lead">7-8 hours of sleep. Still exhausted by noon.</p>
-            <p class="hook-text">It’s not about sleeping more. It’s not about sleeping earlier. Your body’s sleep system is out of sync — and no amount of melatonin or “sleep hygiene” will change that.</p>
-            <p class="hook-text">I spent 2 years in that cycle. 21 days is what it took to get out.</p>
+            <p class="hook-text">
+                It's not about sleeping more. It's not about sleeping earlier. Your body's sleep system is out of sync — and no amount of melatonin or "sleep hygiene" will change that.
+            </p>
+            <p class="hook-text">
+                I spent 2 years in that cycle. 21 days is what it took to get out.
+            </p>
         </div>
     </section>
 
     <div class="divider"></div>
 
+    <!-- ====== PAIN AGITATION ====== -->
     <section class="pain-section">
         <div class="container">
             <h2 class="section-headline">Does this sound like you?</h2>
+
             <ul class="pain-list">
-                <li>You lie in bed and your brain replays every decision you made today — and plans tomorrow before you’ve even slept</li>
-                <li>You’re exhausted by 3pm but somehow wired at midnight</li>
-                <li>You’ve tried melatonin, white noise, sleep apps, “no screens before bed” — and none of it sticks</li>
+                <li>You lie in bed and your brain replays every decision you made today — and plans tomorrow before you've even slept</li>
+                <li>You're exhausted by 3pm but somehow wired at midnight</li>
+                <li>You've tried melatonin, white noise, sleep apps, "no screens before bed" — and none of it sticks</li>
                 <li>You wake up at 3am with your mind already in work mode</li>
-                <li>You’re making important business decisions on 5 hours of broken sleep — and you know it’s costing you</li>
-                <li>You’ve Googled “why can’t I sleep” more times than you’ll admit</li>
+                <li>You're making important business decisions on 5 hours of broken sleep — and you know it's costing you</li>
+                <li>You've Googled "why can't I sleep" more times than you'll admit</li>
             </ul>
-            <p class="pain-closing">It’s not a discipline problem. It’s not that you need another app.<br><strong>Your brain literally doesn’t know how to switch off.</strong></p>
+
+            <p class="pain-closing">
+                It's not a discipline problem. It's not that you need another app.<br>
+                <strong>Your brain literally doesn't know how to switch off.</strong>
+            </p>
         </div>
     </section>
 
+    <!-- ====== WHY NOTHING WORKS ====== -->
     <section class="why-section">
         <div class="container">
             <h2 class="section-headline">Why nothing has worked so far</h2>
+
             <div class="why-text">
-                <p>Most sleep advice is built for people with 9-to-5 jobs and predictable routines. But when you work for yourself, your schedule is different. Your stress is different. <strong>Your brain is different.</strong></p>
-                <p>Melatonin masks the symptom. Sleep hygiene tips treat you like a child. And expensive sleep clinics are designed for medical disorders — not for entrepreneurs whose brains simply won’t power down.</p>
-                <p>This course uses <strong>CBT-i</strong> (Cognitive Behavioral Therapy for Insomnia) — the same evidence-based approach recommended by the American Academy of Sleep Medicine as the <strong>first-line treatment</strong> for sleep issues. No pills. No gadgets. Just a proven system that rewires how your brain handles sleep.</p>
+                <p>
+                    Most sleep advice is built for people with 9-to-5 jobs and predictable routines. But when you work for yourself, your schedule is different. Your stress is different. <strong>Your brain is different.</strong>
+                </p>
+                <p>
+                    Melatonin masks the symptom. Sleep hygiene tips treat you like a child. And expensive sleep clinics are designed for medical disorders — not for entrepreneurs whose brains simply won't power down.
+                </p>
+                <p>
+                    This course uses <strong>CBT-i</strong> (Cognitive Behavioral Therapy for Insomnia) — the same evidence-based approach recommended by the American Academy of Sleep Medicine as the <strong>first-line treatment</strong> for sleep issues. No pills. No gadgets. Just a proven system that rewires how your brain handles sleep.
+                </p>
             </div>
         </div>
     </section>
 
+    <!-- ====== WHAT'S INSIDE ====== -->
     <section class="inside-section">
         <div class="container">
-            <h2 class="section-headline">What’s inside</h2>
+            <h2 class="section-headline">What's inside</h2>
+
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-tag">Immediate Access</span>
                     <h3>Week 1 — delivered instantly</h3>
-                    <p>You get the first module the moment you join. Fix your Clock (circadian rhythm) — the single biggest lever for broken sleep. Start making changes today, not “when the course launches.”</p>
+                    <p>
+                        You get the first module the moment you join. Fix your Clock (circadian rhythm) — the single biggest lever for broken sleep. Start making changes today, not "when the course launches."
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <span class="feature-tag">Full Program</span>
-                    <h3>Weeks 2–4 — delivered as they’re ready</h3>
-                    <p>Week 2: recharge your Battery (sleep pressure). Week 3: train your Off-Switch (nervous system). Week 4: sync all three. New modules drop over the next 4 weeks — you build the habit as the course builds.</p>
+                    <h3>Weeks 2–4 — delivered as they're ready</h3>
+                    <p>
+                        Week 2: recharge your Battery (sleep pressure). Week 3: train your Off-Switch (nervous system). Week 4: sync all three. New modules drop over the next 4 weeks — you build the habit as the course builds.
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <span class="feature-tag">Tracking</span>
                     <h3>Sleep Diary & Tracker</h3>
-                    <p>Track your sleep patterns, identify what’s actually working, and build evidence-based habits. The diary is the backbone of CBT-i — and the reason this approach has a 70-80% success rate.</p>
+                    <p>
+                        Track your sleep patterns, identify what's actually working, and build evidence-based habits. The diary is the backbone of CBT-i — and the reason this approach has a 70-80% success rate.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ====== PRICING ====== -->
     <section class="pricing-section" id="pricing">
         <div class="container">
             <h2 class="section-headline">Founding Member Access</h2>
+
             <div class="price-card">
                 <p class="price-tag">Only 15 spots — 50% Off</p>
                 <p>
@@ -166,6 +632,7 @@
                     <span class="price-original">$134</span>
                 </p>
                 <p class="price-note">One-time payment. Lifetime access. Founding members get everything — forever.</p>
+
                 <ul class="price-includes">
                     <li>Week 1 module — instant access</li>
                     <li>Weeks 2–4 delivered over the next month</li>
@@ -174,52 +641,68 @@
                     <li>Private founding members community</li>
                     <li>Direct input on course content</li>
                 </ul>
+
                 <a href="#" class="cta-button" style="width: 100%; text-align: center;">Become a Founding Member — $67 <span style="font-size: 0.85em; color: rgba(255,255,255,0.75); text-decoration: line-through; text-decoration-color: #ff6b6b; text-decoration-thickness: 2px; margin-left: 4px;">$134</span></a>
                 <p class="cta-subtext" style="margin-top: 12px;">After 15 spots fill, price goes to $134.</p>
             </div>
         </div>
     </section>
 
+    <!-- ====== GUARANTEE ====== -->
     <section class="guarantee-section">
         <div class="container">
             <div class="guarantee-box">
                 <h3>30-Day Money-Back Guarantee</h3>
-                <p>Try the full program. If you complete the course, follow the protocol, track your sleep for 30 days, and it doesn’t work — you get every cent back. No questions, no hassle, no hard feelings.</p>
+                <p>
+                    Try the full program. If you complete the course, follow the protocol, track your sleep for 30 days, and it doesn't work — you get every cent back. No questions, no hassle, no hard feelings.
+                </p>
             </div>
         </div>
     </section>
 
+    <!-- ====== FAQ ====== -->
     <section class="faq-section">
         <div class="container">
             <h2 class="section-headline">Common questions</h2>
+
             <div class="faq-item">
                 <h3>When does the course launch?</h3>
                 <p>Spring 2026. Early access members get first access + the lowest price the course will ever be.</p>
             </div>
+
             <div class="faq-item">
                 <h3>Is this a medical program?</h3>
-                <p>No. This is an educational course based on CBT-i principles — the same evidence-based behavioral approach recommended by sleep medicine professionals. It’s not a replacement for medical treatment if you have a diagnosed sleep disorder.</p>
+                <p>No. This is an educational course based on CBT-i principles — the same evidence-based behavioral approach recommended by sleep medicine professionals. It's not a replacement for medical treatment if you have a diagnosed sleep disorder.</p>
             </div>
+
             <div class="faq-item">
-                <h3>I’ve tried everything. Will this be different?</h3>
-                <p>Most things you’ve tried attack the symptom (melatonin, white noise, apps). CBT-i attacks the root cause — how your brain has learned to associate bed with wakefulness. It’s the most effective non-drug approach ever studied.</p>
+                <h3>I've tried everything. Will this be different?</h3>
+                <p>Most things you've tried attack the symptom (melatonin, white noise, apps). CBT-i attacks the root cause — how your brain has learned to associate bed with wakefulness. It's the most effective non-drug approach ever studied.</p>
             </div>
+
             <div class="faq-item">
-                <h3>What if it doesn’t work for me?</h3>
-                <p>30-day money-back guarantee. Complete the program, give it an honest try. If it doesn’t help, you get a full refund.</p>
+                <h3>What if it doesn't work for me?</h3>
+                <p>30-day money-back guarantee. Complete the program, give it an honest try. If it doesn't help, you get a full refund.</p>
             </div>
         </div>
     </section>
 
+    <!-- ====== FINAL CTA ====== -->
     <section class="final-cta">
         <div class="container">
-            <h2 class="final-headline">You’re making every decision on broken sleep.<br><span class="highlight">That ends here.</span></h2>
-            <p class="final-subtext">Join the founding 15 and get the tools to finally sleep like a human again.</p>
+            <h2 class="final-headline">
+                You're making every decision on broken sleep.<br>
+                <span class="highlight">That ends here.</span>
+            </h2>
+            <p class="final-subtext">
+                Join the founding 15 and get the tools to finally sleep like a human again.
+            </p>
             <a href="#pricing" class="cta-button">Become a Founding Member — $67 <span style="font-size: 0.85em; color: rgba(255,255,255,0.75); text-decoration: line-through; text-decoration-color: #ff6b6b; text-decoration-thickness: 2px; margin-left: 4px;">$134</span></a>
             <p class="cta-subtext">One-time payment · 30-day guarantee</p>
         </div>
     </section>
 
+    <!-- ====== FOOTER ====== -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Sleep Protocol. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a> | <a href="#" style="color: #aaa;">Terms</a></p>
