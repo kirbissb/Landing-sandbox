@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Training: The 3-System Sleep Reset</title>
+<meta name="description" content="Free training: Learn the 3-System Sleep Reset to break the exhaustion cycle in less than a month. No pills. No willpower. No quitting coffee.">
+<style>
+/* === RESET === */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* === BASE === */
+:root {
+  --bg: #0B1120;
+  --bg2: #111B2E;
+  --white: #FFFFFF;
+  --light: #C5D5E5;
+  --muted: #6B7FA0;
+  --teal: #4ECDC4;
+  --orange: #FF6B35;
+  --green: #2ECC71;
+  --red: #E74C3C;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === HERO SECTION (above the fold) === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Audience tag */
+.audience-tag {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+
+/* Free training label */
+.training-label {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+/* Main headline */
+.headline {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.headline .mechanism {
+  display: block;
+  color: var(--teal);
+}
+
+.headline .result {
+  display: block;
+}
+
+.headline .timeframe {
+  display: block;
+  font-size: 0.75em;
+  color: var(--light);
+  margin-top: 4px;
+}
+
+/* Without block */
+.without-block {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+/* CTA Form */
+.cta-form {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+
+.cta-form input[type="email"] {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 1rem;
+  border: 2px solid rgba(78, 205, 196, 0.3);
+  border-radius: 8px;
+  background: var(--bg2);
+  color: var(--white);
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cta-form input[type="email"]::placeholder {
+  color: var(--muted);
+}
+
+.cta-form input[type="email"]:focus {
+  border-color: var(--teal);
+}
+
+.cta-btn {
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  background: var(--green);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.cta-btn:hover {
+  background: #27ae60;
+  transform: translateY(-1px);
+}
+
+.cta-btn:active {
+  transform: translateY(0);
+}
+
+.cta-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* Divider */
+.divider {
+  width: 60px;
+  height: 2px;
+  background: rgba(78, 205, 196, 0.3);
+  margin: 0 auto 32px;
+}
+
+/* D2 Bullets */
+.bullets-section {
+  text-align: left;
+  width: 100%;
+  max-width: 560px;
+}
+
+.bullets-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--light);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  gap: 12px;
+}
+
+.bullet-check {
+  color: var(--teal);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.bullet-text {
+  font-size: 0.95rem;
+  color: var(--light);
+  line-height: 1.6;
+}
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid rgba(107, 127, 160, 0.2);
+}
+
+.footer p {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.footer a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+/* === MOBILE === */
+@media (max-width: 640px) {
+  .hero {
+    padding: 32px 20px;
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+
+  .headline {
+    font-size: 1.85rem;
+  }
+
+  .training-label {
+    font-size: 0.85rem;
+  }
+
+  .without-block {
+    font-size: 0.9rem;
+  }
+
+  .cta-btn {
+    font-size: 1rem;
+    padding: 16px 20px;
+  }
+
+  .bullet-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .headline {
+    font-size: 1.6rem;
+  }
+}
+
+/* === THANK YOU STATE (hidden by default) === */
+.thank-you {
+  display: none;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.thank-you.active {
+  display: flex;
+}
+
+.hero.hidden {
+  display: none;
+}
+
+.thank-you .checkmark {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin-bottom: 28px;
+}
+
+.thank-you h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.thank-you .subtitle {
+  font-size: 1.05rem;
+  color: var(--light);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.details-card {
+  background: var(--bg2);
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-radius: 12px;
+  padding: 28px 32px;
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.details-card .detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(107, 127, 160, 0.15);
+}
+
+.details-card .detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-value {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.expect-section {
+  text-align: left;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.expect-section h3 {
+  font-size: 1rem;
+  color: var(--teal);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.expect-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.expect-num {
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.expect-text {
+  color: var(--light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.bonus-tease {
+  background: rgba(78, 205, 196, 0.08);
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-radius: 8px;
+  padding: 20px 24px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.bonus-tease .bonus-label {
+  font-size: 0.75rem;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.bonus-tease .bonus-text {
+  color: var(--light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== OPT-IN PAGE ===== -->
+<section class="hero" id="hero">
+
+  <p class="audience-tag">For People Who Work From Home</p>
+
+  <p class="training-label">Free Training</p>
+
+  <h1 class="headline">
+    <span class="mechanism">The 3-System Sleep Reset</span>
+    <span class="result">To Break The Exhaustion Cycle</span>
+    <span class="timeframe">In Less Than a Month</span>
+  </h1>
+
+  <p class="without-block">(No Pills. No Willpower. No Quitting Coffee.)</p>
+
+  <form class="cta-form" id="optinForm">
+    <input type="email" name="email" placeholder="Your best email" required autocomplete="email">
+    <button type="submit" class="cta-btn">Save My Spot</button>
+    <p class="cta-note">100% free. No credit card required.</p>
+  </form>
+
+  <div class="divider"></div>
+
+  <div class="bullets-section">
+    <p class="bullets-heading">In This Free Training, You'll See:</p>
+
+    <div class="bullet">
+      <span class="bullet-check">&#10003;</span>
+      <p class="bullet-text">How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years — without giving up coffee or forcing a strict schedule</p>
+    </div>
+
+    <div class="bullet">
+      <span class="bullet-check">&#10003;</span>
+      <p class="bullet-text">Why everything you've tried only addressed one piece of the problem — and the missing systems nobody talks about</p>
+    </div>
+
+    <div class="bullet">
+      <span class="bullet-check">&#10003;</span>
+      <p class="bullet-text">One 2-minute technique you can try tonight to quiet racing thoughts before bed (free, no app needed)</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== THANK YOU PAGE ===== -->
+<section class="thank-you" id="thankYou">
+
+  <div class="checkmark">&#10003;</div>
+
+  <h1>You're in.</h1>
+
+  <p class="subtitle">Check your inbox — we just sent you the details.<br>Here's what to expect.</p>
+
+  <div class="details-card">
+    <div class="detail-row">
+      <span class="detail-label">What</span>
+      <span class="detail-value">The 3-System Sleep Reset</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">When</span>
+      <span class="detail-value">[DATE & TIME TBD]</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Where</span>
+      <span class="detail-value">Online (link in your email)</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Length</span>
+      <span class="detail-value">~75 minutes</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Cost</span>
+      <span class="detail-value">Free</span>
+    </div>
+  </div>
+
+  <div class="expect-section">
+    <h3>What you'll walk away with:</h3>
+
+    <div class="expect-item">
+      <span class="expect-num">1.</span>
+      <p class="expect-text">The 3-system model that explains why you sleep enough hours but still feel terrible</p>
+    </div>
+    <div class="expect-item">
+      <span class="expect-num">2.</span>
+      <p class="expect-text">Why nothing you've tried so far has worked — and why it's not your fault</p>
+    </div>
+    <div class="expect-item">
+      <span class="expect-num">3.</span>
+      <p class="expect-text">One free technique to try tonight — works in 2 minutes</p>
+    </div>
+  </div>
+
+  <div class="bonus-tease">
+    <p class="bonus-label">Stay until the end</p>
+    <p class="bonus-text">Everyone who watches the full training gets access to our complete Caffeine Timing Calculator — the exact tool our team uses to know when to stop drinking coffee based on your body.</p>
+  </div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>
+    &copy; 2026 Sleeping Protocol. All rights reserved.<br>
+    <a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a><br>
+    This site is not a part of the Facebook website or Facebook Inc.
+  </p>
+</footer>
+
+<script>
+// === FORM HANDLER ===
+// Replace this with your email service integration (Mailchimp, ConvertKit, etc.)
+document.getElementById('optinForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const email = this.querySelector('input[type="email"]').value;
+
+  // ====================================================
+  // INTEGRATION POINT — Replace with your email service:
+  //
+  // Option 1: Mailchimp
+  // POST to your Mailchimp form action URL
+  //
+  // Option 2: ConvertKit
+  // fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({ api_key: 'YOUR_API_KEY', email: email })
+  // })
+  //
+  // Option 3: Custom webhook
+  // fetch('YOUR_WEBHOOK_URL', { method: 'POST', body: JSON.stringify({ email }) })
+  //
+  // ====================================================
+
+  console.log('Email submitted:', email);
+
+  // Show thank you page
+  document.getElementById('hero').classList.add('hidden');
+  document.getElementById('thankYou').classList.add('active');
+  window.scrollTo(0, 0);
+});
+
+// === A/B TEST SUPPORT ===
+// To test different headlines, use URL parameters:
+// ?h=1 = Variant 1 (Stop Waking Up Exhausted)
+// ?h=2 = Variant 2 (Get Your Energy Back)
+// ?h=3 = Variant 3 (Break The Exhaustion Cycle) — DEFAULT
+// ?w=1 through ?w=4 for without-block variants
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const h = params.get('h');
+  const w = params.get('w');
+
+  // Headline variants
+  const headlines = {
+    '1': {
+      mechanism: 'The 3-System Sleep Reset',
+      result: 'To Stop Waking Up Exhausted',
+      timeframe: 'Even After 7-8 Hours'
+    },
+    '2': {
+      mechanism: 'The 3-System Sleep Reset',
+      result: 'To Get Your Energy Back',
+      timeframe: 'Starting Week 1'
+    },
+    '3': {
+      mechanism: 'The 3-System Sleep Reset',
+      result: 'To Break The Exhaustion Cycle',
+      timeframe: 'In Less Than a Month'
+    }
+  };
+
+  // Without-block variants
+  const withouts = {
+    '1': '(No Pills. No Strict Schedules. No Willpower.)',
+    '2': '(No Pills. No Strict Schedules. No Quitting Coffee.)',
+    '3': '(No Pills. No Willpower. No Quitting Coffee.)',
+    '4': '(No Strict Schedules. No Willpower. No Quitting Coffee.)'
+  };
+
+  // Bullet variants matching headlines
+  const bullets = {
+    '1': [
+      'How our team went from "exhausted by noon" to waking up with energy — without changing our schedules, quitting coffee, or buying a single supplement',
+      'The 3-system model that explains why you sleep enough hours but still feel terrible — and why nothing you\'ve tried has worked (it\'s not your fault)',
+      'One technique you can try tonight to quiet your racing brain before bed — takes 2 minutes, no app required'
+    ],
+    '2': [
+      'How our team rebuilt our energy without lifestyle overhauls, meditation, or complicated routines — even with chaotic work-from-home schedules',
+      'Why sleeping 7-8 hours still leaves you drained — and the one thing that\'s different about people who wake up sharp (it\'s not genetics and it\'s not discipline)',
+      'A free technique you can use tonight to stop your brain from racing at 3 AM — takes 2 minutes'
+    ],
+    '3': [
+      'How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years — without giving up coffee or forcing a strict schedule',
+      'Why everything you\'ve tried only addressed one piece of the problem — and the missing systems nobody talks about',
+      'One 2-minute technique you can try tonight to quiet racing thoughts before bed (free, no app needed)'
+    ]
+  };
+
+  if (h && headlines[h]) {
+    const hl = headlines[h];
+    document.querySelector('.headline .mechanism').textContent = hl.mechanism;
+    document.querySelector('.headline .result').textContent = hl.result;
+    document.querySelector('.headline .timeframe').textContent = hl.timeframe;
+
+    // Update bullets to match headline variant
+    if (bullets[h]) {
+      const bulletEls = document.querySelectorAll('.bullet-text');
+      bullets[h].forEach((text, i) => {
+        if (bulletEls[i]) bulletEls[i].textContent = text;
+      });
+    }
+  }
+
+  if (w && withouts[w]) {
+    document.querySelector('.without-block').textContent = withouts[w];
+  }
+})();
+</script>
+
+</body>
+</html>
