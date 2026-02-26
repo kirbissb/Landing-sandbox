@@ -66,11 +66,10 @@
         }
         .theme-toggle:hover { color: var(--text); }
 
-        /* === HERO SECTION === */
-        .hero {
-            min-height: 100vh;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; padding: 40px 24px; max-width: 720px; margin: 0 auto;
+        /* === HERO SECTION (above the fold — centered) === */
+        .hero-top {
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; padding: 60px 24px 40px; max-width: 720px; margin: 0 auto;
         }
 
         .pre-headline {
@@ -92,7 +91,7 @@
         }
 
         /* CTA Form */
-        .cta-form { width: 100%; max-width: 420px; margin-bottom: 20px; }
+        .cta-form { width: 100%; max-width: 420px; margin-bottom: 8px; }
         .cta-form input[type="email"] {
             width: 100%; padding: 16px 20px; font-size: 1rem;
             border: 2px solid var(--input-border); border-radius: 8px;
@@ -112,34 +111,64 @@
         .cta-btn:active { transform: translateY(0); }
         .cta-note { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
 
-        /* === BONUS BLOCK === */
-        .bonus-registration {
-            width: 100%;
-            max-width: 480px;
-            margin: 24px 0 28px;
-            padding: 20px 24px;
+        /* Countdown timer */
+        .countdown-wrap { margin: 20px 0 0; text-align: center; }
+        .countdown-label {
+            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 6px;
+        }
+        .countdown {
+            display: flex; justify-content: center; gap: 8px; align-items: baseline;
+        }
+        .countdown-unit { display: flex; flex-direction: column; align-items: center; }
+        .countdown-unit .num {
+            font-size: 1.2rem; font-weight: 600; color: var(--text2);
+            font-variant-numeric: tabular-nums; line-height: 1;
+        }
+        .countdown-unit .lbl {
+            font-size: 0.5rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--muted); margin-top: 2px;
+        }
+        .countdown-sep {
+            font-size: 1.2rem; font-weight: 600; color: var(--muted); line-height: 1;
+        }
+
+        /* === TWO-COLUMN SECTION (below the fold — Becker style) === */
+        .two-col-section {
+            display: flex;
+            gap: 40px;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 32px 60px;
+            align-items: flex-start;
+        }
+
+        .col-left, .col-right {
+            flex: 1;
+        }
+
+        /* Left column — Bonuses */
+        .bonus-card {
             background: var(--bonus-bg);
             border: 1px solid var(--bonus-border);
             border-radius: 10px;
-            text-align: left;
+            padding: 24px 24px 20px;
         }
-        .bonus-registration-label {
-            font-size: 0.7rem;
+        .bonus-card-label {
+            font-size: 0.72rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--accent);
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         .bonus-item {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
-        .bonus-item:last-child {
-            margin-bottom: 0;
-        }
+        .bonus-item:last-child { margin-bottom: 0; }
         .bonus-icon {
             color: var(--bonus-icon);
             font-size: 1rem;
@@ -156,59 +185,44 @@
             font-weight: 600;
         }
 
-        /* Countdown timer */
-        .countdown-wrap { margin: 0 0 32px; text-align: center; }
-        .countdown-label {
-            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
-            color: var(--muted); margin-bottom: 6px;
-        }
-        .countdown {
-            display: flex; justify-content: center; gap: 8px; align-items: baseline;
-        }
-        .countdown-unit { display: flex; flex-direction: column; align-items: center; }
-        .countdown-unit .num {
-            font-size: 1.2rem; font-weight: 600; color: var(--text2);
-            font-variant-numeric: tabular-nums; line-height: 1; text-decoration: none;
-        }
-        .countdown-unit .lbl {
-            font-size: 0.5rem; letter-spacing: 1.5px; text-transform: uppercase;
-            color: var(--muted); margin-top: 2px; text-decoration: none;
-        }
-        .countdown-sep {
-            font-size: 1.2rem; font-weight: 600; color: var(--muted);
-            line-height: 1; text-decoration: none;
-        }
-
-        /* Divider */
-        .divider { width: 60px; height: 2px; background: var(--border); margin: 0 auto 32px; }
-
-        /* D2 Bullets */
-        .bullets-section { text-align: left; width: 100%; max-width: 560px; }
+        /* Right column — Bullets */
         .bullets-heading {
-            font-size: 1rem; font-weight: 600; color: var(--text2);
-            margin-bottom: 20px; text-align: center;
+            font-size: 1.05rem; font-weight: 700; color: var(--text);
+            margin-bottom: 20px;
         }
         .bullet { display: flex; align-items: flex-start; margin-bottom: 18px; gap: 12px; }
         .bullet-check {
             color: var(--check); font-size: 1.1rem; flex-shrink: 0;
             margin-top: 2px; font-weight: 700;
         }
-        .bullet-text { font-size: 0.95rem; color: var(--text2); line-height: 1.6; }
+        .bullet-text { font-size: 0.93rem; color: var(--text2); line-height: 1.6; }
+
+        /* Divider between top and two-col */
+        .section-divider {
+            width: 60px; height: 2px; background: var(--border);
+            margin: 0 auto;
+        }
 
         /* === FOOTER === */
         .footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--border); }
         .footer p { font-size: 0.75rem; color: var(--muted); line-height: 1.8; }
         .footer a { color: var(--muted); text-decoration: underline; }
 
-        /* === MOBILE === */
-        @media (max-width: 640px) {
-            .hero { padding: 32px 20px; justify-content: flex-start; padding-top: 60px; }
+        /* === MOBILE — stack columns === */
+        @media (max-width: 720px) {
+            .hero-top { padding: 40px 20px 32px; }
             .headline { font-size: 1.85rem; }
             .without-block { font-size: 0.9rem; }
             .cta-btn { font-size: 1rem; padding: 16px 20px; }
-            .bullet-text { font-size: 0.9rem; }
-            .bonus-registration { padding: 16px 18px; }
+
+            .two-col-section {
+                flex-direction: column;
+                padding: 32px 20px 40px;
+                gap: 28px;
+            }
+            .bonus-card { padding: 18px 18px 16px; }
             .bonus-item-text { font-size: 0.85rem; }
+            .bullet-text { font-size: 0.9rem; }
         }
         @media (max-width: 380px) {
             .headline { font-size: 1.6rem; }
@@ -221,7 +235,7 @@
             padding: 40px 24px; max-width: 640px; margin: 0 auto;
         }
         .thank-you.active { display: flex; }
-        .hero.hidden { display: none; }
+        .hero-top.hidden, .two-col-wrap.hidden { display: none; }
         .thank-you .checkmark {
             width: 72px; height: 72px; border-radius: 50%; background: var(--accent);
             display: flex; align-items: center; justify-content: center;
@@ -266,8 +280,8 @@
 <!-- Theme toggle -->
 <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Dark</button>
 
-<!-- ===== OPT-IN PAGE ===== -->
-<section class="hero" id="hero">
+<!-- ===== OPT-IN: TOP (centered — above the fold) ===== -->
+<section class="hero-top" id="heroTop">
 
     <p class="pre-headline">Free Training For People Who Work From Home</p>
 
@@ -285,23 +299,6 @@
         <p class="cta-note">100% free. No credit card required.</p>
     </form>
 
-    <!-- === BONUS BLOCK (registration incentive) === -->
-    <div class="bonus-registration">
-        <p class="bonus-registration-label">&#127381; Register today and get free:</p>
-        <div class="bonus-item">
-            <span class="bonus-icon">&#9889;</span>
-            <p class="bonus-item-text"><strong>Caffeine Timing Calculator</strong> — find your personal cutoff time so coffee works for you, not against your sleep</p>
-        </div>
-        <div class="bonus-item">
-            <span class="bonus-icon">&#9989;</span>
-            <p class="bonus-item-text"><strong>5-Minute Sleep Audit</strong> — a quick checklist to find exactly where your sleep is breaking down</p>
-        </div>
-        <div class="bonus-item">
-            <span class="bonus-icon">&#127769;</span>
-            <p class="bonus-item-text"><strong>Bedroom Reset Guide</strong> — the 5 changes that actually matter (not the 20 that don't)</p>
-        </div>
-    </div>
-
     <div class="countdown-wrap">
         <p class="countdown-label">Next Free Training Begins In</p>
         <div class="countdown" id="countdown">
@@ -312,28 +309,57 @@
             <div class="countdown-unit"><span class="num" id="cd-sec">00</span><span class="lbl">Seconds</span></div>
         </div>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="bullets-section">
-        <p class="bullets-heading">In This Free Training, You'll See:</p>
-
-        <div class="bullet">
-            <span class="bullet-check">&#10003;</span>
-            <p class="bullet-text">How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years - without giving up coffee or forcing a strict schedule</p>
-        </div>
-
-        <div class="bullet">
-            <span class="bullet-check">&#10003;</span>
-            <p class="bullet-text">Why everything you've tried only addressed one piece of the problem - and the missing systems nobody talks about</p>
-        </div>
-
-        <div class="bullet">
-            <span class="bullet-check">&#10003;</span>
-            <p class="bullet-text">One 2-minute technique you can try tonight to quiet racing thoughts before bed (free, no app needed)</p>
-        </div>
-    </div>
 </section>
+
+<!-- ===== TWO-COLUMN: Bonuses (left) + Bullets (right) ===== -->
+<div class="two-col-wrap" id="twoColWrap">
+    <div class="section-divider"></div>
+    <div class="two-col-section">
+
+        <!-- LEFT: Bonuses -->
+        <div class="col-left">
+            <div class="bonus-card">
+                <p class="bonus-card-label">&#127381; Register today and get free:</p>
+
+                <div class="bonus-item">
+                    <span class="bonus-icon">&#9889;</span>
+                    <p class="bonus-item-text"><strong>Caffeine Timing Calculator</strong> — find your personal cutoff time so coffee works for you, not against your sleep</p>
+                </div>
+
+                <div class="bonus-item">
+                    <span class="bonus-icon">&#9989;</span>
+                    <p class="bonus-item-text"><strong>5-Minute Sleep Audit</strong> — a quick checklist to find exactly where your sleep is breaking down</p>
+                </div>
+
+                <div class="bonus-item">
+                    <span class="bonus-icon">&#127769;</span>
+                    <p class="bonus-item-text"><strong>Bedroom Reset Guide</strong> — the 5 changes that actually matter (not the 20 that don't)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Bullets -->
+        <div class="col-right">
+            <p class="bullets-heading">In This Free Training, You'll See:</p>
+
+            <div class="bullet">
+                <span class="bullet-check">&#10003;</span>
+                <p class="bullet-text">How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years - without giving up coffee or forcing a strict schedule</p>
+            </div>
+
+            <div class="bullet">
+                <span class="bullet-check">&#10003;</span>
+                <p class="bullet-text">Why everything you've tried only addressed one piece of the problem - and the missing systems nobody talks about</p>
+            </div>
+
+            <div class="bullet">
+                <span class="bullet-check">&#10003;</span>
+                <p class="bullet-text">One 2-minute technique you can try tonight to quiet racing thoughts before bed (free, no app needed)</p>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <!-- ===== THANK YOU PAGE ===== -->
 <section class="thank-you" id="thankYou">
@@ -418,7 +444,8 @@ document.getElementById('optinForm').addEventListener('submit', function(e) {
     // INTEGRATION POINT - Replace with your email service
     // ==================================================
     console.log('Email submitted:', email);
-    document.getElementById('hero').classList.add('hidden');
+    document.getElementById('heroTop').classList.add('hidden');
+    document.getElementById('twoColWrap').classList.add('hidden');
     document.getElementById('thankYou').classList.add('active');
     window.scrollTo(0, 0);
 });
