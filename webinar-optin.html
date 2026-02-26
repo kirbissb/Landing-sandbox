@@ -9,27 +9,67 @@
 /* === RESET === */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* === BASE === */
+/* === BASE (light theme default) === */
 :root {
+  --bg: #FFFFFF;
+  --bg2: #F5F5F5;
+  --text: #1A1A1A;
+  --text2: #333333;
+  --muted: #888888;
+  --accent: #2ECC71;
+  --accent-hover: #27ae60;
+  --border: #E0E0E0;
+  --input-bg: #FFFFFF;
+  --input-border: #CCCCCC;
+  --check: #2ECC71;
+}
+
+/* === DARK THEME === */
+body.dark {
   --bg: #0B1120;
   --bg2: #111B2E;
-  --white: #FFFFFF;
-  --light: #C5D5E5;
+  --text: #FFFFFF;
+  --text2: #C5D5E5;
   --muted: #6B7FA0;
-  --teal: #4ECDC4;
-  --orange: #FF6B35;
-  --green: #2ECC71;
-  --red: #E74C3C;
+  --accent: #2ECC71;
+  --accent-hover: #27ae60;
+  --border: rgba(78, 205, 196, 0.2);
+  --input-bg: #111B2E;
+  --input-border: rgba(78, 205, 196, 0.3);
+  --check: #4ECDC4;
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
-  color: var(--white);
+  color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* === THEME TOGGLE === */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
 }
 
 /* === HERO SECTION (above the fold) === */
@@ -61,13 +101,13 @@ body {
   font-size: 2.6rem;
   font-weight: 700;
   line-height: 1.2;
-  color: var(--white);
+  color: var(--text);
   margin-bottom: 20px;
 }
 
 .headline .mechanism {
   display: block;
-  color: var(--teal);
+  color: var(--accent);
 }
 
 .headline .result {
@@ -77,7 +117,7 @@ body {
 .headline .timeframe {
   display: block;
   font-size: 0.75em;
-  color: var(--light);
+  color: var(--text2);
   margin-top: 4px;
 }
 
@@ -93,17 +133,17 @@ body {
 .cta-form {
   width: 100%;
   max-width: 420px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .cta-form input[type="email"] {
   width: 100%;
   padding: 16px 20px;
   font-size: 1rem;
-  border: 2px solid rgba(78, 205, 196, 0.3);
+  border: 2px solid var(--input-border);
   border-radius: 8px;
-  background: var(--bg2);
-  color: var(--white);
+  background: var(--input-bg);
+  color: var(--text);
   margin-bottom: 12px;
   outline: none;
   transition: border-color 0.2s;
@@ -114,7 +154,7 @@ body {
 }
 
 .cta-form input[type="email"]:focus {
-  border-color: var(--teal);
+  border-color: var(--accent);
 }
 
 .cta-btn {
@@ -124,8 +164,8 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--white);
-  background: var(--green);
+  color: #FFFFFF;
+  background: var(--accent);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -133,7 +173,7 @@ body {
 }
 
 .cta-btn:hover {
-  background: #27ae60;
+  background: var(--accent-hover);
   transform: translateY(-1px);
 }
 
@@ -149,7 +189,7 @@ body {
 
 /* Countdown timer */
 .countdown-wrap {
-  margin: 20px 0 0;
+  margin: 0 0 32px;
   text-align: center;
 }
 
@@ -158,7 +198,7 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .countdown {
@@ -175,33 +215,36 @@ body {
 }
 
 .countdown-unit .num {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--light);
+  color: var(--text2);
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  text-decoration: none;
 }
 
 .countdown-unit .lbl {
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: 3px;
+  margin-top: 2px;
+  text-decoration: none;
 }
 
 .countdown-sep {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--muted);
   line-height: 1;
+  text-decoration: none;
 }
 
 /* Divider */
 .divider {
   width: 60px;
   height: 2px;
-  background: rgba(78, 205, 196, 0.3);
+  background: var(--border);
   margin: 0 auto 32px;
 }
 
@@ -215,7 +258,7 @@ body {
 .bullets-heading {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--light);
+  color: var(--text2);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -228,7 +271,7 @@ body {
 }
 
 .bullet-check {
-  color: var(--teal);
+  color: var(--check);
   font-size: 1.1rem;
   flex-shrink: 0;
   margin-top: 2px;
@@ -237,7 +280,7 @@ body {
 
 .bullet-text {
   font-size: 0.95rem;
-  color: var(--light);
+  color: var(--text2);
   line-height: 1.6;
 }
 
@@ -245,7 +288,7 @@ body {
 .footer {
   text-align: center;
   padding: 40px 24px;
-  border-top: 1px solid rgba(107, 127, 160, 0.2);
+  border-top: 1px solid var(--border);
 }
 
 .footer p {
@@ -269,10 +312,6 @@ body {
 
   .headline {
     font-size: 1.85rem;
-  }
-
-  .training-label {
-    font-size: 0.85rem;
   }
 
   .without-block {
@@ -320,11 +359,12 @@ body {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 36px;
+  color: #FFFFFF;
   margin-bottom: 28px;
 }
 
@@ -336,14 +376,14 @@ body {
 
 .thank-you .subtitle {
   font-size: 1.05rem;
-  color: var(--light);
+  color: var(--text2);
   margin-bottom: 32px;
   line-height: 1.6;
 }
 
 .details-card {
   background: var(--bg2);
-  border: 1px solid rgba(78, 205, 196, 0.2);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 28px 32px;
   width: 100%;
@@ -356,7 +396,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(107, 127, 160, 0.15);
+  border-bottom: 1px solid var(--border);
 }
 
 .details-card .detail-row:last-child {
@@ -371,7 +411,7 @@ body {
 }
 
 .detail-value {
-  color: var(--white);
+  color: var(--text);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -385,7 +425,7 @@ body {
 
 .expect-section h3 {
   font-size: 1rem;
-  color: var(--teal);
+  color: var(--accent);
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -399,21 +439,21 @@ body {
 }
 
 .expect-num {
-  color: var(--teal);
+  color: var(--accent);
   font-weight: 700;
   font-size: 0.9rem;
   flex-shrink: 0;
 }
 
 .expect-text {
-  color: var(--light);
+  color: var(--text2);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
 .bonus-tease {
-  background: rgba(78, 205, 196, 0.08);
-  border: 1px solid rgba(78, 205, 196, 0.2);
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 20px 24px;
   width: 100%;
@@ -423,20 +463,23 @@ body {
 
 .bonus-tease .bonus-label {
   font-size: 0.75rem;
-  color: var(--teal);
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 8px;
 }
 
 .bonus-tease .bonus-text {
-  color: var(--light);
+  color: var(--text2);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 </style>
 </head>
 <body>
+
+<!-- Theme toggle -->
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Dark</button>
 
 <!-- ===== OPT-IN PAGE ===== -->
 <section class="hero" id="hero">
@@ -475,12 +518,12 @@ body {
 
     <div class="bullet">
       <span class="bullet-check">&#10003;</span>
-      <p class="bullet-text">How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years — without giving up coffee or forcing a strict schedule</p>
+      <p class="bullet-text">How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years - without giving up coffee or forcing a strict schedule</p>
     </div>
 
     <div class="bullet">
       <span class="bullet-check">&#10003;</span>
-      <p class="bullet-text">Why everything you've tried only addressed one piece of the problem — and the missing systems nobody talks about</p>
+      <p class="bullet-text">Why everything you've tried only addressed one piece of the problem - and the missing systems nobody talks about</p>
     </div>
 
     <div class="bullet">
@@ -498,7 +541,7 @@ body {
 
   <h1>You're in.</h1>
 
-  <p class="subtitle">Check your inbox — we just sent you the details.<br>Here's what to expect.</p>
+  <p class="subtitle">Check your inbox - we just sent you the details.<br>Here's what to expect.</p>
 
   <div class="details-card">
     <div class="detail-row">
@@ -532,17 +575,17 @@ body {
     </div>
     <div class="expect-item">
       <span class="expect-num">2.</span>
-      <p class="expect-text">Why nothing you've tried so far has worked — and why it's not your fault</p>
+      <p class="expect-text">Why nothing you've tried so far has worked - and why it's not your fault</p>
     </div>
     <div class="expect-item">
       <span class="expect-num">3.</span>
-      <p class="expect-text">One free technique to try tonight — works in 2 minutes</p>
+      <p class="expect-text">One free technique to try tonight - works in 2 minutes</p>
     </div>
   </div>
 
   <div class="bonus-tease">
     <p class="bonus-label">Stay until the end</p>
-    <p class="bonus-text">Everyone who watches the full training gets access to our complete Caffeine Timing Calculator — the exact tool our team uses to know when to stop drinking coffee based on your body.</p>
+    <p class="bonus-text">Everyone who watches the full training gets access to our complete Caffeine Timing Calculator - the exact tool our team uses to know when to stop drinking coffee based on your body.</p>
   </div>
 
 </section>
@@ -557,15 +600,30 @@ body {
 </footer>
 
 <script>
+// === THEME TOGGLE ===
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  var btn = document.getElementById('themeToggle');
+  btn.textContent = document.body.classList.contains('dark') ? 'Light' : 'Dark';
+  localStorage.setItem('sp_theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+}
+
+// Restore saved theme
+(function() {
+  if (localStorage.getItem('sp_theme') === 'dark') {
+    document.body.classList.add('dark');
+    document.getElementById('themeToggle').textContent = 'Light';
+  }
+})();
+
 // === FORM HANDLER ===
-// Replace this with your email service integration (Mailchimp, ConvertKit, etc.)
 document.getElementById('optinForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const email = this.querySelector('input[type="email"]').value;
 
   // ====================================================
-  // INTEGRATION POINT — Replace with your email service:
+  // INTEGRATION POINT - Replace with your email service:
   //
   // Option 1: Mailchimp
   // POST to your Mailchimp form action URL
@@ -591,17 +649,15 @@ document.getElementById('optinForm').addEventListener('submit', function(e) {
 });
 
 // === A/B TEST SUPPORT ===
-// To test different headlines, use URL parameters:
-// ?h=1 = Variant 1 (Stop Waking Up Exhausted — First Results In Week 1) — DEFAULT
-// ?h=2 = Variant 2 (Get Your Energy Back — Starting Week 1)
-// ?h=3 = Variant 3 (Break The Exhaustion Cycle — In Less Than a Month)
+// ?h=1 = Variant 1 (Stop Waking Up Exhausted - Even After 7-8 Hours)
+// ?h=2 = Variant 2 (Get Your Energy Back - Starting Week 1)
+// ?h=3 = Variant 3 (Break The Exhaustion Cycle - In Less Than a Month)
 // ?w=1 through ?w=4 for without-block variants
 (function() {
   const params = new URLSearchParams(window.location.search);
   const h = params.get('h');
   const w = params.get('w');
 
-  // Headline variants
   const headlines = {
     '1': {
       mechanism: 'The 3-Phase Sleep Reset',
@@ -620,7 +676,6 @@ document.getElementById('optinForm').addEventListener('submit', function(e) {
     }
   };
 
-  // Without-block variants
   const withouts = {
     '1': '(No Pills. No Strict Schedules. No Willpower.)',
     '2': '(No Pills. No Strict Schedules. No Quitting Coffee.)',
@@ -628,21 +683,20 @@ document.getElementById('optinForm').addEventListener('submit', function(e) {
     '4': '(No Strict Schedules. No Willpower. No Quitting Coffee.)'
   };
 
-  // Bullet variants matching headlines
   const bullets = {
     '1': [
-      'How our team went from "exhausted by noon" to waking up with energy — without changing our schedules, quitting coffee, or buying a single supplement',
-      'The 3-phase model that explains why you sleep enough hours but still feel terrible — and why nothing you\'ve tried has worked (it\'s not your fault)',
-      'One technique you can try tonight to quiet your racing brain before bed — takes 2 minutes, no app required'
+      'How our team went from "exhausted by noon" to waking up with energy - without changing our schedules, quitting coffee, or buying a single supplement',
+      'The 3-phase model that explains why you sleep enough hours but still feel terrible - and why nothing you\'ve tried has worked (it\'s not your fault)',
+      'One technique you can try tonight to quiet your racing brain before bed - takes 2 minutes, no app required'
     ],
     '2': [
-      'How our team rebuilt our energy without lifestyle overhauls, meditation, or complicated routines — even with chaotic work-from-home schedules',
-      'Why sleeping 7-8 hours still leaves you drained — and the one thing that\'s different about people who wake up sharp (it\'s not genetics and it\'s not discipline)',
-      'A free technique you can use tonight to stop your brain from racing at 3 AM — takes 2 minutes'
+      'How our team rebuilt our energy without lifestyle overhauls, meditation, or complicated routines - even with chaotic work-from-home schedules',
+      'Why sleeping 7-8 hours still leaves you drained - and the one thing that\'s different about people who wake up sharp (it\'s not genetics and it\'s not discipline)',
+      'A free technique you can use tonight to stop your brain from racing at 3 AM - takes 2 minutes'
     ],
     '3': [
-      'How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years — without giving up coffee or forcing a strict schedule',
-      'Why everything you\'ve tried only addressed one piece of the problem — and the missing systems nobody talks about',
+      'How our team broke the sleep-caffeine-crash cycle that kept us exhausted for years - without giving up coffee or forcing a strict schedule',
+      'Why everything you\'ve tried only addressed one piece of the problem - and the missing systems nobody talks about',
       'One 2-minute technique you can try tonight to quiet racing thoughts before bed (free, no app needed)'
     ]
   };
@@ -653,7 +707,6 @@ document.getElementById('optinForm').addEventListener('submit', function(e) {
     document.querySelector('.headline .result').textContent = hl.result;
     document.querySelector('.headline .timeframe').textContent = hl.timeframe;
 
-    // Update bullets to match headline variant
     if (bullets[h]) {
       const bulletEls = document.querySelectorAll('.bullet-text');
       bullets[h].forEach((text, i) => {
@@ -677,7 +730,6 @@ document.getElementById('optinForm').addEventListener('submit', function(e) {
   if (stored && Number(stored) > now) {
     end = Number(stored);
   } else {
-    // Random 30-55 minutes from now
     var mins = 30 + Math.floor(Math.random() * 25);
     end = now + mins * 60 * 1000;
     localStorage.setItem(key, end);
