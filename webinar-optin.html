@@ -51,17 +51,20 @@ body {
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--teal);
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   font-weight: 600;
 }
 
-/* Free training label */
-.training-label {
-  font-size: 1rem;
+.audience-tag .sep {
   color: var(--muted);
-  text-transform: uppercase;
+  margin: 0 10px;
+  font-weight: 400;
+}
+
+.audience-tag .label {
+  color: var(--muted);
   letter-spacing: 2px;
-  margin-bottom: 16px;
+  font-weight: 400;
 }
 
 /* Main headline */
@@ -400,9 +403,7 @@ body {
 <!-- ===== OPT-IN PAGE ===== -->
 <section class="hero" id="hero">
 
-  <p class="audience-tag">For People Who Work From Home</p>
-
-  <p class="training-label">Free Training</p>
+  <p class="audience-tag">For People Who Work From Home <span class="sep">|</span> <span class="label">Free Training</span></p>
 
   <h1 class="headline">
     <span class="mechanism">The 3-Phase Sleep Reset</span>
