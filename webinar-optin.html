@@ -149,22 +149,23 @@ body {
 
 /* Countdown timer */
 .countdown-wrap {
-  margin: 24px 0 8px;
+  margin: 20px 0 0;
   text-align: center;
 }
 
 .countdown-label {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 8px;
+  align-items: baseline;
 }
 
 .countdown-unit {
@@ -174,24 +175,24 @@ body {
 }
 
 .countdown-unit .num {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--light);
   font-variant-numeric: tabular-nums;
   line-height: 1;
 }
 
 .countdown-unit .lbl {
-  font-size: 0.6rem;
-  letter-spacing: 2px;
+  font-size: 0.55rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .countdown-sep {
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 600;
   color: var(--muted);
   line-height: 1;
 }
@@ -450,6 +451,12 @@ body {
 
   <p class="without-block">(No Pills. No Willpower. No Quitting Coffee.)</p>
 
+  <form class="cta-form" id="optinForm">
+    <input type="email" name="email" placeholder="Your best email" required autocomplete="email">
+    <button type="submit" class="cta-btn">Save My Spot</button>
+    <p class="cta-note">100% free. No credit card required.</p>
+  </form>
+
   <div class="countdown-wrap">
     <p class="countdown-label">Next Free Training Begins In</p>
     <div class="countdown" id="countdown">
@@ -460,12 +467,6 @@ body {
       <div class="countdown-unit"><span class="num" id="cd-sec">00</span><span class="lbl">Seconds</span></div>
     </div>
   </div>
-
-  <form class="cta-form" id="optinForm">
-    <input type="email" name="email" placeholder="Your best email" required autocomplete="email">
-    <button type="submit" class="cta-btn">Save My Spot</button>
-    <p class="cta-note">100% free. No credit card required.</p>
-  </form>
 
   <div class="divider"></div>
 
