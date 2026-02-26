@@ -147,6 +147,55 @@ body {
   margin-top: 8px;
 }
 
+/* Countdown timer */
+.countdown-wrap {
+  margin: 24px 0 8px;
+  text-align: center;
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-unit .num {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.countdown-unit .lbl {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.countdown-sep {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1;
+}
+
 /* Divider */
 .divider {
   width: 60px;
@@ -401,6 +450,17 @@ body {
 
   <p class="without-block">(No Pills. No Willpower. No Quitting Coffee.)</p>
 
+  <div class="countdown-wrap">
+    <p class="countdown-label">Next Free Training Begins In</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown-unit"><span class="num" id="cd-hrs">00</span><span class="lbl">Hours</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="num" id="cd-min">00</span><span class="lbl">Minutes</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="num" id="cd-sec">00</span><span class="lbl">Seconds</span></div>
+    </div>
+  </div>
+
   <form class="cta-form" id="optinForm">
     <input type="email" name="email" placeholder="Your best email" required autocomplete="email">
     <button type="submit" class="cta-btn">Save My Spot</button>
@@ -604,6 +664,37 @@ document.getElementById('optinForm').addEventListener('submit', function(e) {
   if (w && withouts[w]) {
     document.querySelector('.without-block').textContent = withouts[w];
   }
+})();
+
+// === COUNTDOWN TIMER (evergreen) ===
+(function() {
+  var key = 'sp_cd_end';
+  var stored = localStorage.getItem(key);
+  var end;
+  var now = Date.now();
+
+  if (stored && Number(stored) > now) {
+    end = Number(stored);
+  } else {
+    // Random 30-55 minutes from now
+    var mins = 30 + Math.floor(Math.random() * 25);
+    end = now + mins * 60 * 1000;
+    localStorage.setItem(key, end);
+  }
+
+  function tick() {
+    var diff = Math.max(0, end - Date.now());
+    var h = Math.floor(diff / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('cd-hrs').textContent = String(h).padStart(2, '0');
+    document.getElementById('cd-min').textContent = String(m).padStart(2, '0');
+    document.getElementById('cd-sec').textContent = String(s).padStart(2, '0');
+
+    if (diff > 0) requestAnimationFrame(tick);
+  }
+  tick();
 })();
 </script>
 
